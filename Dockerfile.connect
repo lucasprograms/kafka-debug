@@ -1,0 +1,9 @@
+ARG CP_KAFKA_CONNECT_VERSION=7.0.1
+
+FROM confluentinc/cp-kafka-connect:$CP_KAFKA_CONNECT_VERSION
+
+ENV DEBEZIUM_POSTGRES_SINK_VERSION=1.8.1
+
+# Postgres Source Connector
+RUN confluent-hub install --no-prompt debezium/debezium-connector-postgresql:$DEBEZIUM_POSTGRES_SINK_VERSION
+
